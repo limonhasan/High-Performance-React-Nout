@@ -1,0 +1,27 @@
+"Build a high-performance, single-page React application for "NO OUTSIDERS" using Tailwind CSS and Framer Motion. The site must be 100% mobile-optimized with a "High-Energy Dark Club" aesthetic.
+> 1. Visual Identity & Theme:
+>  * Color Palette: Pure Black (#000000), "No Outsiders" Red (#E31212), and Stark White.
+>  * Typography: Use 'Archivo Black' or 'Oswald' for massive, loud headlines and 'Inter' for body text.
+>  * Style: Neo-Brutalist. Use heavy 4px borders, sharp corners, and glowing red neon accents on buttons.
+> 2. Content Sections:
+>  * Navigation: Sticky header with a circular 'N' logo and links: [EVENTS], [THE CODE], [GALLERY].
+>  * Hero Section: Full-viewport height. Huge text: "3 HOURS OF NONSTOP ENERGY." Subtext: "No Smoking • No Alcohol • No Daily Raves." Add a primary "GET TICKETS" button with a pulsing red glow.
+>  * The Code (Philosophy): A stylized section explaining: "Exclusive Nights Only. A community of positivity. We vibe different."
+>  * Events Grid (Direct IG Data): Create an array-mapped grid of 3 premium cards:
+>    * RED ROOM: Bollywood X Club | Jan 29 | 7PM-10PM.
+>    * ALADDIN: Mirpur 10 | Tickets: 699 BDT.
+>    * EDM X BOLLYWOOD: Ocean Basket | Dec 22 | Limited Entries.
+>  * Gallery: A 3-column Instagram-style masonry grid using placeholders for the user to swap with their IG posters later.
+> 3. Functional Booking System (WhatsApp Method):
+>  * Create a BookingModal.jsx component using AnimatePresence from Framer Motion.
+>  * When "Get Tickets" is clicked, open a glassmorphism modal showing: Event Name, Price (699 BDT), and a form for [Name] and [Quantity].
+>  * Logic: The "Confirm" button must trigger a window.open to https://wa.me/YOUR_NUMBER?text=... with a URL-encoded message: "Hi No Outsiders! I want to book [Quantity] tickets for [Event Name]. My name is [Name]."
+> 4. Technical Requirements:
+>  * Mobile First: Ensure all layouts stack perfectly for mobile users (90% of traffic).
+>  * Animations: Use framer-motion for "reveal on scroll" effects. Components should slide up with a slight bounce.
+>  * Single File/No Backend: Keep all event data in a const events = [...] array within the code. Use standard React useState for modal management. No external database required.
+>  * Assets: Use high-quality placeholder images (Unsplash/Lucide Icons) for the logo and posters, but leave clear comments in the code: // REPLACE WITH IG MEDIA HERE.
+> 
+What happens after you run this?
+ * The Layout: You will see a professional, dark, edgy website that looks like a high-end nightlife brand.
+ * The Interaction: You can click "Get Tickets," fill in your name, and it will actually try to open WhatsApp to send the booking—it’s a fully working business tool immediately.

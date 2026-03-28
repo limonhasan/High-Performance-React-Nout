@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --border: 0 0% 15%;
+  --input: 0 0% 12%;
+  --ring: 0 85% 47%;
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 100%;
+  --primary: 0 85% 47%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 8%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 8%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 85% 47%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 85% 47%;
+  --destructive-foreground: 0 0% 100%;
+  --app-font-sans: 'Inter', sans-serif;
+  --radius: 0rem;
+}
+
+@layer base {
+  * {
+    @apply border-border box-border;
+  }
+  body {
+    @apply bg-black text-white antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px #E31212, 0 0 40px #E31212, 0 0 80px #E31212;
+  }
+  50% {
+    box-shadow: 0 0 10px #E31212, 0 0 20px #E31212, 0 0 40px #E31212;
+  }
+}
+
+@keyframes text-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 10px #E31212, 0 0 30px #E31212;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.neon-text {
+  animation: text-flicker 3s infinite alternate;
+}
+
+.glassmorphism {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(227, 18, 18, 0.3);
+}
+
+.red-border-glow {
+  border: 4px solid #E31212;
+  box-shadow: 0 0 15px rgba(227, 18, 18, 0.4), inset 0 0 15px rgba(227, 18, 18, 0.05);
+}
+
+.headline {
+  font-family: 'Archivo Black', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.sub-headline {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.masonry-grid {
+  columns: 3;
+  column-gap: 12px;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+  .masonry-grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-grid {
+    columns: 2;
+  }
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
