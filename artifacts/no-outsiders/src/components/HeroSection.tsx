@@ -72,7 +72,7 @@ export default function HeroSection({ onGetTickets }: HeroProps) {
             onClick={onGetTickets}
             className="pulse-glow sub-headline font-bold text-white bg-[#E31212] border-4 border-[#E31212] px-10 py-4 text-sm tracking-widest w-full sm:w-auto"
           >
-            GET TICKETS →
+            REQUEST INVITE →
           </motion.button>
 
           <motion.button
@@ -97,7 +97,7 @@ export default function HeroSection({ onGetTickets }: HeroProps) {
           {[
             { value: "3+", label: "EVENTS" },
             { value: "500+", label: "ATTENDEES" },
-            { value: "699 BDT", label: "FROM" },
+            { value: "INVITE", label: "ONLY" },
           ].map(({ value, label }) => (
             <div key={label} className="text-center">
               <div className="headline text-white text-2xl sm:text-3xl">{value}</div>

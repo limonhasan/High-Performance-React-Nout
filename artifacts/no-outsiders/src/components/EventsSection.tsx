@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MapPin, Clock, Ticket } from "lucide-react";
+import { Calendar, MapPin, Clock, Lock } from "lucide-react";
 
 const events = [
   {
@@ -11,9 +11,7 @@ const events = [
     date: "Jan 29",
     time: "7PM – 10PM",
     venue: "TBA",
-    price: "699 BDT",
-    tag: "PREMIUM",
-    color: "#E31212",
+    tag: "INVITE ONLY",
     // REPLACE WITH IG MEDIA HERE
     image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
   },
@@ -24,9 +22,7 @@ const events = [
     date: "Coming Soon",
     time: "TBA",
     venue: "Mirpur 10",
-    price: "699 BDT",
-    tag: "SOLD OUT SOON",
-    color: "#E31212",
+    tag: "INVITE ONLY",
     // REPLACE WITH IG MEDIA HERE
     image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
   },
@@ -35,18 +31,16 @@ const events = [
     name: "EDM X BOLLYWOOD",
     subtitle: "The Fusion Night",
     date: "Dec 22",
-    time: "Limited Entries",
+    time: "Exclusive",
     venue: "Ocean Basket",
-    price: "Limited",
-    tag: "LIMITED ENTRIES",
-    color: "#E31212",
+    tag: "INVITE ONLY",
     // REPLACE WITH IG MEDIA HERE
     image: "https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=800&q=80",
   },
 ];
 
 interface EventsProps {
-  onBook: (event: { name: string; price: string; date: string; venue: string }) => void;
+  onBook: (event: { name: string; date: string; venue: string }) => void;
 }
 
 export default function EventsSection({ onBook }: EventsProps) {
@@ -81,6 +75,19 @@ export default function EventsSection({ onBook }: EventsProps) {
               <span className="text-[#E31212]">YOUR ESCAPE.</span>
             </motion.h2>
           </div>
+
+          {/* Invite only notice */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex items-center gap-2 border-2 border-white/10 px-4 py-3 self-start sm:self-auto"
+          >
+            <Lock size={12} className="text-[#E31212]" />
+            <span className="sub-headline text-white/50 text-xs tracking-widest">
+              NO TICKETS — INVITE ONLY
+            </span>
+          </motion.div>
         </div>
 
         {/* Events Grid */}
@@ -108,8 +115,9 @@ export default function EventsSection({ onBook }: EventsProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
                 {/* Tag */}
-                <div className="absolute top-4 left-4 bg-[#E31212] px-3 py-1">
-                  <span className="sub-headline text-white text-xs font-bold tracking-widest">
+                <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-black/80 border border-[#E31212]/60 px-3 py-1">
+                  <Lock size={10} className="text-[#E31212]" />
+                  <span className="sub-headline text-[#E31212] text-xs font-bold tracking-widest">
                     {event.tag}
                   </span>
                 </div>
@@ -140,10 +148,6 @@ export default function EventsSection({ onBook }: EventsProps) {
                     <MapPin size={14} className="text-[#E31212] flex-shrink-0" />
                     <span>{event.venue}</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-sm">
-                    <Ticket size={14} className="text-[#E31212] flex-shrink-0" />
-                    <span className="text-white font-bold">{event.price}</span>
-                  </div>
                 </div>
 
                 <motion.button
@@ -152,14 +156,14 @@ export default function EventsSection({ onBook }: EventsProps) {
                   onClick={() =>
                     onBook({
                       name: `${event.name} – ${event.subtitle}`,
-                      price: event.price,
                       date: event.date,
                       venue: event.venue,
                     })
                   }
-                  className="w-full sub-headline font-bold text-white bg-[#E31212] border-2 border-[#E31212] hover:bg-transparent hover:text-[#E31212] transition-all text-xs tracking-widest py-3"
+                  className="w-full sub-headline font-bold text-white bg-[#E31212] border-2 border-[#E31212] hover:bg-transparent hover:text-[#E31212] transition-all text-xs tracking-widest py-3 flex items-center justify-center gap-2"
                 >
-                  BOOK NOW →
+                  <Lock size={11} />
+                  REQUEST INVITE
                 </motion.button>
               </div>
             </motion.div>

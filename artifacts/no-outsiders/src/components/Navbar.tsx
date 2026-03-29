@@ -64,13 +64,13 @@ export default function Navbar({ onGetTickets }: NavbarProps) {
               onClick={onGetTickets}
               className="sub-headline text-white bg-[#E31212] border-2 border-[#E31212] px-5 py-2 text-xs tracking-widest font-bold hover:bg-transparent hover:text-[#E31212] transition-all"
             >
-              GET TICKETS
+              REQUEST INVITE
             </motion.button>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 z-50"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -109,7 +109,7 @@ export default function Navbar({ onGetTickets }: NavbarProps) {
               }}
               className="sub-headline text-white bg-[#E31212] border-2 border-[#E31212] px-5 py-3 text-sm tracking-widest font-bold text-center"
             >
-              GET TICKETS
+              REQUEST INVITE
             </button>
           </motion.div>
         )}

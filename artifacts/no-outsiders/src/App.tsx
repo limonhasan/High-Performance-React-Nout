@@ -9,14 +9,12 @@ import BookingModal from "@/components/BookingModal";
 
 interface BookingEvent {
   name: string;
-  price: string;
   date: string;
   venue: string;
 }
 
 const defaultEvent: BookingEvent = {
   name: "NO OUTSIDERS – NEXT EVENT",
-  price: "699 BDT",
   date: "Coming Soon",
   venue: "TBA",
 };
