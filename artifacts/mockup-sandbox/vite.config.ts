@@ -5,15 +5,11 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
-const rawPort = process.env.PORT;
-const port = rawPort && !Number.isNaN(Number(rawPort)) && Number(rawPort) > 0
-  ? Number(rawPort)
-  : 3000;
-
-const basePath = process.env.BASE_PATH ?? "/";
+const PORT = process.env.PORT || 3000;
+const BASE_PATH = process.env.BASE_PATH || "/";
 
 export default defineConfig({
-  base: basePath,
+  base: BASE_PATH,
   plugins: [
     mockupPreviewPlugin(),
     react(),
@@ -41,7 +37,7 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
-    port,
+    port: Number(PORT),
     host: "0.0.0.0",
     allowedHosts: true,
     fs: {
@@ -50,7 +46,7 @@ export default defineConfig({
     },
   },
   preview: {
-    port,
+    port: Number(PORT),
     host: "0.0.0.0",
     allowedHosts: true,
   },
